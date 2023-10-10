@@ -15,12 +15,6 @@ Aprovechando el paralelismo del FPGA, se implementaron 10 patrones de 16 posible
 | ![patron7](imagenes/patron7.jpg) | ![patron8](imagenes/patron8.jpg) | ![patron9](imagenes/patron9.jpg) |
 ![patron10](imagenes/patron10.jpg) 
 
-| abc | def |
-| --- | --- |
-| bar |
-| bar | baz | boo |
-
-
 ## Referencias
 BrunoLevy, [FOMU_VGA](https://github.com/BrunoLevy/learn-fpga/tree/master/Basic/FOMU/FOMU_VGA): Utilice el modo en que trabaja con SB_IO en verilog para que todas las señales sean estables. Así mismo, partí de este mismo principo del Latch para generar otro que sirva como intermedio para la generacion de los patrones. Esto también sirve para la memoria BRAM que entrega el dato en un pixel especifico en el siguiente ciclo. Así, leon_vga resultó en un pipelining.
 Splinedrive, [vga_ctrl](https://github.com/splinedrive/kianRiscV/blob/master/archive/harris_baremetal_stuff/kianv_harris_mcycle_edition/gateware/vga_ctrl.v): El codigo del módulo `sync_vga` en `leon_vga.v` está totalmente basado en este circuito. La gran diferencia es que los parametros fueron separados pues el modulo principal `VGA` llama a `sync_vga`.
