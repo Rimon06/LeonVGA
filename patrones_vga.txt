@@ -1,0 +1,360 @@
+/home/jfdava/.apio
+/home/jfdava/.apio
+[Mon Oct  9 23:55:19 2023] Processing icefun
+--------------------------------------------------------------------------------
+yosys -p "synth_ice40 -json hardware.json" -q ControladorMatrizLed.v leon_vga.v top_vga.v utilidades.v
+nextpnr-ice40 --hx8k --package cb132 --json hardware.json --asc hardware.asc --pcf icefun.pcf
+Info: Importing module top
+Info: Rule checker, verifying imported design
+Info: Checksum: 0x47322e87
+
+Info: constrained 'led[0]' to bel 'X22/Y33/io1'
+Info: constrained 'led[1]' to bel 'X25/Y33/io0'
+Info: constrained 'led[2]' to bel 'X13/Y33/io1'
+Info: constrained 'led[3]' to bel 'X11/Y33/io0'
+Info: constrained 'led[4]' to bel 'X17/Y33/io0'
+Info: constrained 'led[5]' to bel 'X14/Y33/io1'
+Info: constrained 'led[6]' to bel 'X5/Y33/io0'
+Info: constrained 'led[7]' to bel 'X4/Y33/io0'
+Info: constrained 'lcol[3]' to bel 'X30/Y33/io1'
+Info: constrained 'lcol[2]' to bel 'X27/Y33/io0'
+Info: constrained 'lcol[1]' to bel 'X16/Y33/io1'
+Info: constrained 'lcol[0]' to bel 'X8/Y33/io1'
+Info: constrained 'key[0]' to bel 'X28/Y33/io1'
+Info: constrained 'key[1]' to bel 'X11/Y33/io1'
+Info: constrained 'key[2]' to bel 'X26/Y33/io0'
+Info: constrained 'key[3]' to bel 'X10/Y33/io1'
+Info: constrained 'clk12MHz' to bel 'X16/Y0/io1'
+Info: constrained 'vga_red[2]' to bel 'X33/Y28/io0'
+Info: constrained 'vga_red[1]' to bel 'X29/Y33/io1'
+Info: constrained 'vga_red[0]' to bel 'X33/Y24/io1'
+Info: constrained 'vga_green[2]' to bel 'X33/Y27/io1'
+Info: constrained 'vga_green[1]' to bel 'X33/Y23/io1'
+Info: constrained 'vga_green[0]' to bel 'X33/Y21/io0'
+Info: constrained 'vga_blue[1]' to bel 'X33/Y21/io1'
+Info: constrained 'vga_blue[0]' to bel 'X33/Y15/io0'
+Info: constrained 'vga_hsync' to bel 'X33/Y16/io1'
+Info: constrained 'vga_vsync' to bel 'X33/Y11/io0'
+
+Info: Packing constants..
+Info: Packing IOs..
+Info: vga_red[0] feeds SB_IO pantalla__UUT.user_IO[7], removing $nextpnr_obuf vga_red[0].
+Info: vga_red[1] feeds SB_IO pantalla__UUT.user_IO[8], removing $nextpnr_obuf vga_red[1].
+Info: vga_red[2] feeds SB_IO pantalla__UUT.user_IO[9], removing $nextpnr_obuf vga_red[2].
+Info: vga_green[0] feeds SB_IO pantalla__UUT.user_IO[4], removing $nextpnr_obuf vga_green[0].
+Info: vga_green[1] feeds SB_IO pantalla__UUT.user_IO[5], removing $nextpnr_obuf vga_green[1].
+Info: vga_green[2] feeds SB_IO pantalla__UUT.user_IO[6], removing $nextpnr_obuf vga_green[2].
+Info: vga_blue[0] feeds SB_IO pantalla__UUT.user_IO[2], removing $nextpnr_obuf vga_blue[0].
+Info: vga_blue[1] feeds SB_IO pantalla__UUT.user_IO[3], removing $nextpnr_obuf vga_blue[1].
+Info: vga_hsync feeds SB_IO pantalla__UUT.user_IO[0], removing $nextpnr_obuf vga_hsync.
+Info: vga_vsync feeds SB_IO pantalla__UUT.user_IO[1], removing $nextpnr_obuf vga_vsync.
+Info: Packing LUT-FFs..
+Info:      531 LCs used as LUT4 only
+Info:      142 LCs used as LUT4 and DFF
+Info: Packing non-LUT FFs..
+Info:       52 LCs used as DFF only
+Info: Packing carries..
+Info:       74 LCs used as CARRY only
+Info: Packing RAMs..
+Info: Placing PLLs..
+Info:   constrained PLL 'pantalla__UUT.PLL' to X16/Y33/pll_3
+Info: Packing special functions..
+Info: Promoting globals..
+Info: promoting pantalla__UUT.px_clk (fanout 103)
+Info: promoting clk12MHz$SB_IO_IN (fanout 101)
+Info: promoting rst [reset] (fanout 88)
+Info: promoting pantalla__UUT.hsync_SB_LUT4_O_I2_SB_LUT4_I1_O_SB_LUT4_I3_O_SB_LUT4_I3_O [reset] (fanout 23)
+Info: promoting pantalla__UUT.sync_gen.vcycle [cen] (fanout 32)
+Info: Constraining chains...
+Info:       37 LCs used to legalise carry chains.
+Info: Checksum: 0xebbe6af7
+
+Info: Annotating ports with timing budgets for target frequency 12.00 MHz
+Info: Checksum: 0xb38f77f9
+
+Info: Device utilisation:
+Info: 	         ICESTORM_LC:   840/ 7680    10%
+Info: 	        ICESTORM_RAM:     0/   32     0%
+Info: 	               SB_IO:    27/  256    10%
+Info: 	               SB_GB:     5/    8    62%
+Info: 	        ICESTORM_PLL:     1/    2    50%
+Info: 	         SB_WARMBOOT:     0/    1     0%
+
+Info: Placed 28 cells based on constraints.
+Info: Creating initial analytic placement for 641 cells, random placement wirelen = 23661.
+Info:     at initial placer iter 0, wirelen = 842
+Info:     at initial placer iter 1, wirelen = 650
+Info:     at initial placer iter 2, wirelen = 688
+Info:     at initial placer iter 3, wirelen = 699
+Info: Running main analytical placer.
+Info:     at iteration #1, type ALL: wirelen solved = 686, spread = 3173, legal = 3359; time = 0.05s
+Info:     at iteration #2, type ALL: wirelen solved = 714, spread = 2741, legal = 3013; time = 0.07s
+Info:     at iteration #3, type ALL: wirelen solved = 759, spread = 2539, legal = 2750; time = 0.06s
+Info:     at iteration #4, type ALL: wirelen solved = 857, spread = 2183, legal = 2321; time = 0.07s
+Info:     at iteration #5, type ALL: wirelen solved = 834, spread = 2157, legal = 2303; time = 0.08s
+Info:     at iteration #6, type ALL: wirelen solved = 886, spread = 2127, legal = 2341; time = 0.06s
+Info:     at iteration #7, type ALL: wirelen solved = 951, spread = 2243, legal = 2405; time = 0.04s
+Info:     at iteration #8, type ALL: wirelen solved = 1037, spread = 2124, legal = 2318; time = 0.04s
+Info:     at iteration #9, type ALL: wirelen solved = 1072, spread = 2209, legal = 2355; time = 0.04s
+Info:     at iteration #10, type ALL: wirelen solved = 1127, spread = 2219, legal = 2430; time = 0.04s
+Info: HeAP Placer Time: 0.88s
+Info:   of which solving equations: 0.59s
+Info:   of which spreading cells: 0.05s
+Info:   of which strict legalisation: 0.07s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 427, wirelen = 2303
+Info:   at iteration #5: temp = 0.000000, timing cost = 385, wirelen = 1946
+Info:   at iteration #10: temp = 0.000000, timing cost = 441, wirelen = 1824
+Info:   at iteration #15: temp = 0.000000, timing cost = 411, wirelen = 1773
+Info:   at iteration #20: temp = 0.000000, timing cost = 418, wirelen = 1698
+Info:   at iteration #21: temp = 0.000000, timing cost = 413, wirelen = 1697
+Info: SA placement time 1.80s
+
+Info: Max frequency for clock 'pantalla__UUT.px_clk_$glb_clk': 49.98 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock    'clk12MHz$SB_IO_IN_$glb_clk': 139.63 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                               -> posedge clk12MHz$SB_IO_IN_$glb_clk   : 1.55 ns
+Info: Max delay posedge clk12MHz$SB_IO_IN_$glb_clk    -> <async>                              : 2.43 ns
+Info: Max delay posedge clk12MHz$SB_IO_IN_$glb_clk    -> posedge pantalla__UUT.px_clk_$glb_clk: 9.06 ns
+Info: Max delay posedge pantalla__UUT.px_clk_$glb_clk -> posedge clk12MHz$SB_IO_IN_$glb_clk   : 2.42 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 3 endpoint(s)
+Info:          + represents [1,3) endpoint(s)
+Info: [ 63323,  64268) |*+
+Info: [ 64268,  65213) |
+Info: [ 65213,  66158) |
+Info: [ 66158,  67103) |
+Info: [ 67103,  68048) |
+Info: [ 68048,  68993) |
+Info: [ 68993,  69938) |*******+
+Info: [ 69938,  70883) |+
+Info: [ 70883,  71828) |****+
+Info: [ 71828,  72773) |*******+
+Info: [ 72773,  73718) |**+
+Info: [ 73718,  74663) |*********+
+Info: [ 74663,  75608) |+
+Info: [ 75608,  76553) |*************+
+Info: [ 76553,  77498) |*******+
+Info: [ 77498,  78443) |*********************+
+Info: [ 78443,  79388) |******************************+
+Info: [ 79388,  80333) |**************************+
+Info: [ 80333,  81278) |******************************************+
+Info: [ 81278,  82223) |************************************************************
+Info: Checksum: 0xfd978a09
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 2468 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs
+Info:       1000 |       13        986 |   13   986 |      1484
+Info:       2000 |       86       1913 |   73   927 |       586
+Info:       2629 |      120       2509 |   34   596 |         0
+Info: Routing complete.
+Info: Route time 1.35s
+Info: Checksum: 0x9244c9f2
+
+Info: Critical path report for clock 'pantalla__UUT.px_clk_$glb_clk' (posedge -> posedge):
+Info: curr total
+Info:  0.5  0.5  Source pantalla__UUT.sync_gen.o_vcnt_SB_DFFESR_Q_D_SB_LUT4_O_5_LC.O
+Info:  0.6  1.1    Net pantalla__UUT.dy_SB_LUT4_O_I3[1] budget 4.559000 ns (18,25) -> (19,26)
+Info:                Sink $nextpnr_ICESTORM_LC_11.I1
+Info:  0.3  1.4  Source $nextpnr_ICESTORM_LC_11.COUT
+Info:  0.0  1.4    Net $nextpnr_ICESTORM_LC_11$O budget 0.000000 ns (19,26) -> (19,26)
+Info:                Sink pantalla__UUT.dy_SB_LUT4_O_I3_SB_CARRY_CO_3$CARRY.CIN
+Info:  0.1  1.5  Source pantalla__UUT.dy_SB_LUT4_O_I3_SB_CARRY_CO_3$CARRY.COUT
+Info:  0.0  1.5    Net pantalla__UUT.dy_SB_LUT4_O_I3[2] budget 0.000000 ns (19,26) -> (19,26)
+Info:                Sink pantalla__UUT.dy_SB_LUT4_O_3_LC.CIN
+Info:  0.1  1.6  Source pantalla__UUT.dy_SB_LUT4_O_3_LC.COUT
+Info:  0.0  1.6    Net pantalla__UUT.dy_SB_LUT4_O_I3[3] budget 0.000000 ns (19,26) -> (19,26)
+Info:                Sink pantalla__UUT.dy_SB_LUT4_O_2_LC.CIN
+Info:  0.1  1.8  Source pantalla__UUT.dy_SB_LUT4_O_2_LC.COUT
+Info:  0.0  1.8    Net pantalla__UUT.dy_SB_LUT4_O_I3[4] budget 0.000000 ns (19,26) -> (19,26)
+Info:                Sink pantalla__UUT.dy_SB_LUT4_O_1_LC.CIN
+Info:  0.1  1.9  Source pantalla__UUT.dy_SB_LUT4_O_1_LC.COUT
+Info:  0.3  2.2    Net pantalla__UUT.dy_SB_LUT4_O_I3[5] budget 0.260000 ns (19,26) -> (19,26)
+Info:                Sink pantalla__UUT.dy_SB_LUT4_O_LC.I3
+Info:  0.3  2.5  Source pantalla__UUT.dy_SB_LUT4_O_LC.O
+Info:  1.3  3.7    Net pantalla__UUT.dy[9] budget 4.369000 ns (19,26) -> (16,25)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_LC.I0
+Info:  0.4  4.2  Source pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_LC.O
+Info:  0.6  4.8    Net pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2 budget 4.369000 ns (16,25) -> (16,25)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I1_SB_LUT4_O_I2_SB_LUT4_O_LC.I0
+Info:  0.4  5.2  Source pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I1_SB_LUT4_O_I2_SB_LUT4_O_LC.O
+Info:  0.6  5.8    Net pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I1_SB_LUT4_O_I2 budget 4.369000 ns (16,25) -> (16,25)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_LC.I1
+Info:  0.4  6.2  Source pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_LC.O
+Info:  0.6  6.8    Net pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I3 budget 4.369000 ns (16,25) -> (15,25)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_LC.I3
+Info:  0.3  7.1  Source pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_LC.O
+Info:  1.3  8.4    Net pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_I2 budget 4.512000 ns (15,25) -> (17,27)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_LC.I2
+Info:  0.4  8.8  Source pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2_SB_LUT4_O_LC.O
+Info:  0.6  9.4    Net pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_I2 budget 4.546000 ns (17,27) -> (18,27)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_LC.I2
+Info:  0.4  9.7  Source pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2_SB_LUT4_O_LC.O
+Info:  1.3 11.0    Net pantalla__UUT.R2_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2 budget 4.495000 ns (18,27) -> (20,29)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_1_I2_SB_LUT4_O_I2_SB_LUT4_O_LC.I2
+Info:  0.4 11.4  Source pantalla__UUT.R2_SB_LUT4_O_1_I2_SB_LUT4_O_I2_SB_LUT4_O_LC.O
+Info:  0.6 12.0    Net pantalla__UUT.R2_SB_LUT4_O_1_I2_SB_LUT4_O_I2 budget 4.369000 ns (20,29) -> (21,29)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_1_I2_SB_LUT4_O_LC.I2
+Info:  0.4 12.3  Source pantalla__UUT.R2_SB_LUT4_O_1_I2_SB_LUT4_O_LC.O
+Info:  1.0 13.3    Net pantalla__UUT.R2_SB_LUT4_O_1_I2 budget 4.595000 ns (21,29) -> (22,28)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_1_LC.I2
+Info:  0.2 13.5  Source pantalla__UUT.R2_SB_LUT4_O_1_LC.COUT
+Info:  0.5 14.0    Net pantalla__UUT.R2_SB_LUT4_O_I1_SB_CARRY_I0_CO[12] budget 0.560000 ns (22,28) -> (22,29)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_O_LC.I3
+Info:  0.3 14.3  Source pantalla__UUT.R2_SB_LUT4_O_LC.O
+Info:  0.6 14.9    Net pantalla__UUT.R2[12] budget 4.704000 ns (22,29) -> (22,29)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_I2_LC.I3
+Info:  0.3 15.2  Source pantalla__UUT.R2_SB_LUT4_I2_LC.O
+Info:  0.6 15.8    Net pantalla__UUT.R2_SB_LUT4_I2_O budget 4.495000 ns (22,29) -> (23,28)
+Info:                Sink pantalla__UUT.R2_SB_LUT4_I2_O_SB_LUT4_I3_LC.I3
+Info:  0.3 16.1  Source pantalla__UUT.R2_SB_LUT4_I2_O_SB_LUT4_I3_LC.O
+Info:  1.6 17.7    Net pantalla__UUT.user_IO[9]_D_OUT_0_SB_LUT4_O_I2 budget 4.525000 ns (23,28) -> (28,27)
+Info:                Sink pantalla__UUT.user_IO[7]_D_OUT_0_SB_LUT4_O_I2_SB_LUT4_O_LC.I3
+Info:  0.3 18.0  Source pantalla__UUT.user_IO[7]_D_OUT_0_SB_LUT4_O_I2_SB_LUT4_O_LC.O
+Info:  0.6 18.6    Net pantalla__UUT.user_IO[7]_D_OUT_0_SB_LUT4_O_I2 budget 4.551000 ns (28,27) -> (29,26)
+Info:                Sink pantalla__UUT.user_IO[7]_D_OUT_0_SB_LUT4_O_LC.I2
+Info:  0.4 19.0  Source pantalla__UUT.user_IO[7]_D_OUT_0_SB_LUT4_O_LC.O
+Info:  1.3 20.3    Net pantalla__UUT.user_IO[7]_D_OUT_0 budget 4.405000 ns (29,26) -> (33,24)
+Info:                Sink pantalla__UUT.user_IO[7].D_OUT_0
+Info:  0.1 20.3  Setup pantalla__UUT.user_IO[7].D_OUT_0
+Info: 6.7 ns logic, 13.6 ns routing
+
+Info: Critical path report for clock 'clk12MHz$SB_IO_IN_$glb_clk' (posedge -> posedge):
+Info: curr total
+Info:  0.5  0.5  Source LEDS8_4.timer_SB_DFFSR_Q_11_DFFLC.O
+Info:  0.6  1.1    Net LEDS8_4.timer[0] budget 0.000000 ns (14,32) -> (14,31)
+Info:                Sink LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_LUT4_O_LC.I3
+Info:  0.3  1.4  Source LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_LUT4_O_LC.O
+Info:  0.9  2.3    Net LEDS8_4.timer_SB_DFFSR_Q_11_D budget 0.000000 ns (14,31) -> (16,31)
+Info:                Sink $nextpnr_ICESTORM_LC_21.I1
+Info:  0.3  2.6  Source $nextpnr_ICESTORM_LC_21.COUT
+Info:  0.0  2.6    Net $nextpnr_ICESTORM_LC_21$O budget 0.000000 ns (16,31) -> (16,31)
+Info:                Sink LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI$CARRY.CIN
+Info:  0.1  2.7  Source LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI$CARRY.COUT
+Info:  0.0  2.7    Net LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO[2] budget 0.000000 ns (16,31) -> (16,31)
+Info:                Sink LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_6$CARRY.CIN
+Info:  0.1  2.9  Source LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_6$CARRY.COUT
+Info:  0.0  2.9    Net LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO[3] budget 0.000000 ns (16,31) -> (16,31)
+Info:                Sink LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_5$CARRY.CIN
+Info:  0.1  3.0  Source LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_5$CARRY.COUT
+Info:  0.0  3.0    Net LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO[4] budget 0.000000 ns (16,31) -> (16,31)
+Info:                Sink LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_4$CARRY.CIN
+Info:  0.1  3.1  Source LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_4$CARRY.COUT
+Info:  0.0  3.1    Net LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO[5] budget 0.000000 ns (16,31) -> (16,31)
+Info:                Sink LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_3$CARRY.CIN
+Info:  0.1  3.2  Source LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_3$CARRY.COUT
+Info:  0.0  3.2    Net LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO[6] budget 0.000000 ns (16,31) -> (16,31)
+Info:                Sink LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_2$CARRY.CIN
+Info:  0.1  3.4  Source LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_2$CARRY.COUT
+Info:  0.0  3.4    Net LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO[7] budget 0.000000 ns (16,31) -> (16,31)
+Info:                Sink LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_1$CARRY.CIN
+Info:  0.1  3.5  Source LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO_1$CARRY.COUT
+Info:  0.2  3.7    Net LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO[8] budget 0.190000 ns (16,31) -> (16,32)
+Info:                Sink LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO$CARRY.CIN
+Info:  0.1  3.8  Source LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO_SB_CARRY_CO$CARRY.COUT
+Info:  0.0  3.8    Net LEDS8_4.timer_SB_DFFSR_Q_11_D_SB_CARRY_CI_CO[9] budget 0.000000 ns (16,32) -> (16,32)
+Info:                Sink LEDS8_4.row_SB_DFFSS_Q_S_SB_LUT4_O_I2_SB_CARRY_CO$CARRY.CIN
+Info:  0.1  3.9  Source LEDS8_4.row_SB_DFFSS_Q_S_SB_LUT4_O_I2_SB_CARRY_CO$CARRY.COUT
+Info:  0.3  4.2    Net $nextpnr_ICESTORM_LC_22$I3 budget 0.260000 ns (16,32) -> (16,32)
+Info:                Sink $nextpnr_ICESTORM_LC_22.I3
+Info:  0.3  4.5  Source $nextpnr_ICESTORM_LC_22.O
+Info:  0.6  5.1    Net LEDS8_4.row_SB_DFFSS_Q_S_SB_LUT4_O_I2 budget 57.249001 ns (16,32) -> (16,32)
+Info:                Sink LEDS8_4.row_SB_DFFSS_Q_S_SB_LUT4_O_LC.I2
+Info:  0.4  5.5  Source LEDS8_4.row_SB_DFFSS_Q_S_SB_LUT4_O_LC.O
+Info:  1.8  7.3    Net LEDS8_4.row_SB_DFFSS_Q_S budget 20.073000 ns (16,32) -> (11,29)
+Info:                Sink LEDS8_4.row_SB_DFFSS_Q_D_SB_LUT4_O_LC.SR
+Info:  0.1  7.4  Setup LEDS8_4.row_SB_DFFSS_Q_D_SB_LUT4_O_LC.SR
+Info: 3.0 ns logic, 4.3 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge clk12MHz$SB_IO_IN_$glb_clk':
+Info: curr total
+Info:  0.0  0.0  Source key[0]$sb_io.D_IN_0
+Info:  1.3  1.3    Net key[0]$SB_IO_IN budget 82.998001 ns (28,33) -> (26,32)
+Info:                Sink key0_tic.d_SB_LUT4_O_LC.I3
+Info:  0.3  1.6  Setup key0_tic.d_SB_LUT4_O_LC.I3
+Info: 0.3 ns logic, 1.3 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk12MHz$SB_IO_IN_$glb_clk' -> '<async>':
+Info: curr total
+Info:  0.5  0.5  Source LEDS8_4.act_row_SB_DFFSS_Q_D_SB_LUT4_O_LC.O
+Info:  1.9  2.5    Net lcol[3]$SB_IO_OUT budget 82.792999 ns (21,32) -> (30,33)
+Info:                Sink lcol[3]$sb_io.D_OUT_0
+Info: 0.5 ns logic, 1.9 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk12MHz$SB_IO_IN_$glb_clk' -> 'posedge pantalla__UUT.px_clk_$glb_clk':
+Info: curr total
+Info:  0.5  0.5  Source rst_SB_LUT4_O_I3_SB_DFFE_Q_DFFLC.O
+Info:  2.1  2.7    Net rst_SB_LUT4_O_I3 budget 20.422001 ns (16,29) -> (24,24)
+Info:                Sink pantalla__UUT.hsync_SB_LUT4_O_I2_SB_LUT4_I1_O_SB_LUT4_I3_O_SB_LUT4_I3_LC.I2
+Info:  0.4  3.0  Source pantalla__UUT.hsync_SB_LUT4_O_I2_SB_LUT4_I1_O_SB_LUT4_I3_O_SB_LUT4_I3_LC.O
+Info:  1.3  4.3    Net pantalla__UUT.hsync_SB_LUT4_O_I2_SB_LUT4_I1_O_SB_LUT4_I3_O_SB_LUT4_I3_O budget 8.449000 ns (24,24) -> (28,23)
+Info:                Sink pantalla__UUT.cnt_blue_SB_DFFESR_Q_E_SB_LUT4_O_I2_SB_LUT4_O_I1_SB_LUT4_I2_O_SB_LUT4_I2_LC.I3
+Info:  0.3  4.6  Source pantalla__UUT.cnt_blue_SB_DFFESR_Q_E_SB_LUT4_O_I2_SB_LUT4_O_I1_SB_LUT4_I2_O_SB_LUT4_I2_LC.O
+Info:  0.6  5.2    Net pantalla__UUT.cnt_red_SB_DFFESR_Q_E budget 8.335000 ns (28,23) -> (29,23)
+Info:                Sink pantalla__UUT.cnt_blue_SB_DFFESR_Q_E_SB_LUT4_O_LC.I3
+Info:  0.3  5.5  Source pantalla__UUT.cnt_blue_SB_DFFESR_Q_E_SB_LUT4_O_LC.O
+Info:  0.9  6.5    Net pantalla__UUT.cnt_blue_SB_DFFESR_Q_E budget 8.305000 ns (29,23) -> (30,23)
+Info:                Sink pantalla__UUT.cnt_blue_SB_DFFESR_Q_D_SB_LUT4_O_LC.CEN
+Info:  0.1  6.6  Setup pantalla__UUT.cnt_blue_SB_DFFESR_Q_D_SB_LUT4_O_LC.CEN
+Info: 1.6 ns logic, 4.9 ns routing
+
+Info: Critical path report for cross-domain path 'posedge pantalla__UUT.px_clk_$glb_clk' -> 'posedge clk12MHz$SB_IO_IN_$glb_clk':
+Info: curr total
+Info:  0.5  0.5  Source pantalla__UUT.frame_cnt_SB_DFFESR_Q_D_SB_LUT4_O_9_LC.O
+Info:  1.3  1.9    Net framecnt[2] budget 82.324997 ns (13,28) -> (14,32)
+Info:                Sink leds1_SB_DFFSR_Q_5_DFFLC.I0
+Info:  0.5  2.3  Setup leds1_SB_DFFSR_Q_5_DFFLC.I0
+Info: 1.0 ns logic, 1.3 ns routing
+
+Info: Max frequency for clock 'pantalla__UUT.px_clk_$glb_clk': 49.17 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock    'clk12MHz$SB_IO_IN_$glb_clk': 135.74 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                               -> posedge clk12MHz$SB_IO_IN_$glb_clk   : 1.62 ns
+Info: Max delay posedge clk12MHz$SB_IO_IN_$glb_clk    -> <async>                              : 2.46 ns
+Info: Max delay posedge clk12MHz$SB_IO_IN_$glb_clk    -> posedge pantalla__UUT.px_clk_$glb_clk: 6.56 ns
+Info: Max delay posedge pantalla__UUT.px_clk_$glb_clk -> posedge clk12MHz$SB_IO_IN_$glb_clk   : 2.34 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 3 endpoint(s)
+Info:          + represents [1,3) endpoint(s)
+Info: [ 62993,  63954) |*+
+Info: [ 63954,  64915) |+
+Info: [ 64915,  65876) |
+Info: [ 65876,  66837) |
+Info: [ 66837,  67798) |
+Info: [ 67798,  68759) |
+Info: [ 68759,  69720) |
+Info: [ 69720,  70681) |
+Info: [ 70681,  71642) |***+
+Info: [ 71642,  72603) |*******+
+Info: [ 72603,  73564) |+
+Info: [ 73564,  74525) |
+Info: [ 74525,  75486) |
+Info: [ 75486,  76447) |****************+
+Info: [ 76447,  77408) |************+
+Info: [ 77408,  78369) |************************+
+Info: [ 78369,  79330) |************+
+Info: [ 79330,  80291) |**************************************************+
+Info: [ 80291,  81252) |******************************+
+Info: [ 81252,  82213) |************************************************************
+icepack hardware.asc hardware.bin
+icefunprog /dev/ttyACM0 hardware.bin
+Flash ID 0x1f 0x85 0x1
+Program length 135100
+Erase pages 3
+Erasing sector 0x00000
+Erase sector response 0xb0
+Erasing sector 0x10000
+Erase sector response 0xb0
+Erasing sector 0x20000
+Erase sector response 0xb0
+################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+
+Flash ok
+Release response 0x0
+========================= [SUCCESS] Took 98.52 seconds =========================
