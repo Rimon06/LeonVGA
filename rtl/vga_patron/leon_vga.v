@@ -1,6 +1,7 @@
 /*
 https://github.com/narendiran1996/vga_controller/blob/main/vga_timing_specs.csv
-
+http://martin.hinner.info/vga/timing.html
+http://www.tinyvga.com/vga-timing/640x480@60Hz
 */
 `define CLK_25MHZ
 `default_nettype none
