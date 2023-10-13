@@ -354,7 +354,7 @@ module sync_vga #(`MY_VGA_DEFAULT_PARAMS) (
   localparam HTOTAL    = HACTIVE + HFP + HSYNCLEN + HBP;
 
   assign o_vsync  = (~VPOL) ^ ((o_vcnt >= (VACTIVE + VFP -1)) && (o_vcnt < (VACTIVE + VFP + VSYNCLEN)));
-  assign o_hsync  = (~HPOL) ^ ((o_hcnt >= (HACTIVE + HFP -1)) && (o_vcnt < (HACTIVE + HFP + HSYNCLEN)));
+  assign o_hsync  = (~HPOL) ^ ((o_hcnt >= (HACTIVE + HFP -1)) && (o_hcnt < (HACTIVE + HFP + HSYNCLEN)));
   assign o_blank  = (o_hcnt >= HACTIVE) || (o_vcnt >= VACTIVE);
 
   wire hcycle = ((o_hcnt == (HTOTAL -1)) || rst);
